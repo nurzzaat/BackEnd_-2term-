@@ -1,0 +1,27 @@
+username,password,email
+john_doe,password123,john_doe@example.com
+jane_doe,password456,jane_doe@example.com
+
+name,bio
+Radiohead,"Radiohead are an English rock band formed in Abingdon, Oxfordshire in 1985."
+Beyonce,"Beyoncé Giselle Knowles-Carter is an American singer, songwriter, record producer, dancer, and actress."
+
+name,artist,release_date,genre
+OK Computer,Radiohead,1997-06-16,Alternative rock
+Lemonade,Beyonce,2016-04-23,R&B
+
+name,artist,album,length
+Paranoid Android,Radiohead,OK Computer,387
+Karma Police,Radiohead,OK Computer,265
+Formation,Beyonce,Lemonade,237
+Sorry,Beyonce,Lemonade,234
+
+name,user
+My favorites,john_doe
+Road trip,jane_doe
+
+playlist,song
+My favorites,Paranoid Android
+My favorites,Formation
+Road trip,Karma Police
+Road trip,Sorry
