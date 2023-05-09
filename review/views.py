@@ -19,3 +19,4 @@ def album_list(request):
         albums_with_genre[album.genre].append(album.name)
 
     return render(request, "album_list.html", {'albums_with_genre' : albums_with_genre})
+
