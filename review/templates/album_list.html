@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Welcome to our music platform!</h1>
+
+        <div class="albums">
+            {% for genre, albums in albums_with_genre.items %}
+                <h2 >{{ genre }}</h2>
+                <ul class="genre">
+                    {% for album in albums %}
+                        <li class="album">{{ album }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

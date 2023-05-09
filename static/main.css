@@ -1,51 +1,92 @@
 .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 200px;
-        background-color: #282828;
-        color: #fff;
-        overflow: auto;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #282828;
+    color: #fff;
+    overflow: auto;
+}
 
-    .sidebar-logo {
-        text-align: center;
-        margin: 20px 0;
-    }
+.sidebar-logo {
+    text-align: center;
+    margin: 20px 0;
+}
 
-    .sidebar-logo a {
-        display: inline-block;
-        padding: 10px;
-    }
+.sidebar-logo a {
+    display: inline-block;
+    padding: 10px;
+}
 
-    .sidebar-nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-    .sidebar-nav li {
-        border-bottom: 1px solid #ddd;
-    }
+.sidebar-nav li {
+    border-bottom: 1px solid #ddd;
+}
 
-    .sidebar-nav a {
-        display: block;
-        padding: 10px;
-        color: #fff;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
+.sidebar-nav a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
 
-    .sidebar-nav a:hover {
-        background-color: #fff;
-        color: #282828;
-    }
+.sidebar-nav a:hover {
+    background-color: #fff;
+    color: #282828;
+}
 
-    @media (max-width: 768px) {
-        .sidebar {
-            width: 100%;
-            height: auto;
-            position: relative;
-        }
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
     }
+}
+
+/*home css*/
+.container {
+    margin-left: 200px;
+    padding: 20px;
+    background-color: #eee;
+    height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.albums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.genre {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.album {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.album:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
