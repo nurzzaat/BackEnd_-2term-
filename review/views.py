@@ -19,7 +19,7 @@ def album_list(request):
         albums_with_genre[album.genre].append(album)
 
 
-    return render(request, "album_list.html", {'albums_with_genre' : albums_with_genre})
+    return render(request, "album_list.html", {'albums_with_genre': albums_with_genre})
 
 def album_detail(request, pk):
     album = Album.objects.get(pk=pk)
@@ -34,9 +34,19 @@ def genre_list(request):
     genre_set = set()
 
     for album in albums:
-        if len(genre_set) == 3:
+        if len(genre_set) == 4:
             break
         genre_set.add(album.genre)
 
-    return render(request, "search.html", {'genre_set' : genre_set})
+    return render(request, "search.html", {'genre_set': genre_set})
 
+def albums_in_genre(request, genre_name):
+    albums = Album.objects.all()
+    albums_of_one_genre = []
+
+    print("rbrbrtb")
+    for album in albums:
+        if genre_name == album.genre:
+            albums_of_one_genre.append(album)
+
+    return render(request, "albums_of_one_genre.html", {'genre': genre_name, 'albums_of_one_genre': albums_of_one_genre})
