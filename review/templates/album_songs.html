@@ -5,10 +5,12 @@
         <h1>Альбом - {{ album.name }}</h1>
 
         <ul class="songs">
-            {% for song in songs%}
-                <li class="song">
-                    {{ song.name }}
-                </li>
+            {% for song in songs %}
+                <a href="/albums/{{ album.id }}/{{ song.id }}/">{##}
+                    <li class="song">
+                        {{ song.name }}
+                    </li>
+                </a>
             {% endfor %}
         </ul>
 
