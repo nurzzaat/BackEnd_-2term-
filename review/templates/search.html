@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
     <header class="bg-gray-900">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold text-white">
@@ -10,14 +11,20 @@
                 Millions of songs. No credit card needed.
             </p>
             <div class="mt-8">
-                <form action="#" method="POST">
+                <form action="/search//" method="POST">
+                     {% csrf_token %}
+
                     <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto py-3 px-3 sm:px-6 lg:px-8">
                         <input type="text" name="search" id="search" placeholder="Search"
                            class="flex-1 appearance-none border-2 border-gray-300 rounded-md w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500 focus:ring-green-500">
                         <button type="submit"
-                                class="mt-2 sm:mt-0 sm:ml-3 inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                class="mt-2 sm:mt-0 sm:ml-3 inline-flex items-center px-6 py-3
+                                border border-transparent text-base font-medium rounded-md shadow-sm
+                                text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2
+                                focus:ring-offset-2 focus:ring-green-500">
                                 Enter
                         </button>
+
                     </div>
                 </form>
             </div>

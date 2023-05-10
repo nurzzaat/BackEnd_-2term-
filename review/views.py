@@ -50,3 +50,22 @@ def albums_in_genre(request, genre_name):
             albums_of_one_genre.append(album)
 
     return render(request, "albums_of_one_genre.html", {'genre': genre_name, 'albums_of_one_genre': albums_of_one_genre})
+
+
+def songs_detail(request, album_name, pk):
+    song = Song.objects.get(pk=pk)
+    list_of_songs = []
+    list_of_songs.append(song)
+
+    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
+
+def get_songs(request, song_name):
+    songs = Song.objects.all()
+    list_of_songs = []
+
+    for song in songs:
+        if song.name == song_name:
+            list_of_songs.append(song)
+
+    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
+

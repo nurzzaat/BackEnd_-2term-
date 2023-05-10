@@ -47,11 +47,75 @@
         </div>
     </div>
 </nav>
+
 <div class="content">
     {% block content %}
 
     {% endblock %}
 </div>
+
+<footer class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <div class="grid grid-cols-2 gap-8 xl:col-span-2">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-900">
+                            Navigation
+                        </h3>
+                        <ul class="mt-4 space-y-4">
+                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Discover</a></li>
+                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Help Center</a></li>
+                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-900">
+                            Legal
+                        </h3>
+                        <ul class="mt-4 space-y-4">
+                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Privacy Policy</a></li>
+                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Terms of Use</a></li>
+                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-medium text-gray-900">
+                        Social Media
+                    </h3>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Facebook</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Twitter</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Instagram</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 xl:mt-0">
+                <h3 class="text-sm font-medium text-gray-900">
+                    Subscribe to our newsletter
+                </h3>
+                <p class="mt-4 text-sm text-gray-500">Stay up to date on the latest news and updates.</p>
+                <form class="mt-4 sm:flex sm:max-w-md">
+                    <label for="email-address" class="sr-only">Email address</label>
+                    <input id="email-address" type="email" autocomplete="email" required
+                           class="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:z-10 sm:leading-5"
+                           placeholder="Enter your email">
+                    <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                        <button type="submit"
+                                class="w-full flex items-center justify-center py-2 px-6 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:w-auto sm:text-sm">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-200 pt-8">
+            <p class="text-base text-gray-400 xl:text-center">&copy; 2023 Spotify Inc. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
