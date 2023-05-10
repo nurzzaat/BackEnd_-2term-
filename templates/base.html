@@ -5,24 +5,49 @@
     <meta charset="UTF-8">
     <title>Spotify</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+
 </head>
 <body>
 
-<div class="sidebar">
-    <div class="sidebar-logo">
-        <a href="#">
-            <img src="{% static 'spotify_transparent_logo.png' %}" alt="">
-        </a>
+<nav class="bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <img class="h-8 w-8" src="https://www.scdn.co/i/_global/favicon.png" alt="Spotify Logo">
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline">
+                        <a href="/albums/"
+                           class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700">Home</a>
+                        <a href="#"
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Search</a>
+                        <a href="#"
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Your
+                            Library</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-4 flex items-center md:ml-6">
+
+                    <div class="ml-3 relative">
+                        <div>
+                            <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
+                                    id="user-menu" aria-label="User menu" aria-haspopup="true">
+                                <img class="h-8 w-8 rounded-full"
+                                     src="https://avatars.githubusercontent.com/u/65207586?s=200&v=4" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <nav class="sidebar-nav">
-        <ul>
-            <li><a href="/albums/">Главная</a></li>
-            <li><a href="#">Поиск</a></li>
-            <li><a href="#">Моя медиатека</a></li>
-        </ul>
-    </nav>
-</div>
-<div>
+</nav>
+<div class="content">
     {% block content %}
 
     {% endblock %}

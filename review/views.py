@@ -4,10 +4,10 @@ from .models import (User, Artist, Album, Song, Playlist, PlaylistSong)
 
 
 def index(request):
-    return render(request, "base.html")
+    return render(request, "base.html", {'registered': registered})
 
 
-# Create your views here.
+registered = True
 
 def album_list(request):
     albums = Album.objects.all()
@@ -18,6 +18,7 @@ def album_list(request):
             albums_with_genre[album.genre] = []
         albums_with_genre[album.genre].append(album)
 
+
     return render(request, "album_list.html", {'albums_with_genre' : albums_with_genre})
 
 def album_detail(request, pk):
@@ -25,7 +26,5 @@ def album_detail(request, pk):
     # print(album.name)
     songs = Song.objects.filter(album__name=album.name)
     # print(songs)
-    for s in songs:
-        print(s.name)
 
     return render(request, "album_songs.html", {'songs': songs, 'album': album})
