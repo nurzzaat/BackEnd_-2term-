@@ -9,7 +9,7 @@
                 <h2 >{{ genre }}</h2>
                 <ul class="genre">
                     {% for album in albums %}
-                        <li class="album">{{ album }}</li>
+                        <a class="album" href="/albums/{{ album.id }}/">{{ album.name }}</a>
                     {% endfor %}
                 </ul>
             {% endfor %}

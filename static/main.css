@@ -6,9 +6,10 @@
 
 body {
     background-color: #08141C;
-    font-family: CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var ,sans-serif;
+    font-family: CircularSp, CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, var, sans-serif;
     height: 100vh;
 }
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -48,7 +49,8 @@ body {
     color: #fff;
     background-color: #282828;
 }
-.sidebar-logo a img{
+
+.sidebar-logo a img {
     filter: brightness(0) invert(1);
     max-height: 200px;
     max-width: 200px;
@@ -81,7 +83,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
-h1, h2{
+
+h1, h2 {
     color: #fff;
 }
 
@@ -113,4 +116,20 @@ h1, h2{
 .album:hover {
     transform: scale(1.05);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* album */
+
+.songs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.song {
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
 }

@@ -16,7 +16,16 @@ def album_list(request):
     for album in albums:
         if album.genre not in albums_with_genre:
             albums_with_genre[album.genre] = []
-        albums_with_genre[album.genre].append(album.name)
+        albums_with_genre[album.genre].append(album)
 
     return render(request, "album_list.html", {'albums_with_genre' : albums_with_genre})
 
+def album_detail(request, pk):
+    album = Album.objects.get(pk=pk)
+    # print(album.name)
+    songs = Song.objects.filter(album__name=album.name)
+    # print(songs)
+    for s in songs:
+        print(s.name)
+
+    return render(request, "album_songs.html", {'songs': songs, 'album': album})
