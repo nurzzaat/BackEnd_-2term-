@@ -13,9 +13,9 @@ body {
 
 /*home css*/
 .container {
-    padding-top: 70px;
-    padding-left: 300px;
+    padding: 70px;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 

@@ -28,3 +28,15 @@ def album_detail(request, pk):
     # print(songs)
 
     return render(request, "album_songs.html", {'songs': songs, 'album': album})
+
+def genre_list(request):
+    albums = Album.objects.all()
+    genre_set = set()
+
+    for album in albums:
+        if len(genre_set) == 3:
+            break
+        genre_set.add(album.genre)
+
+    return render(request, "search.html", {'genre_set' : genre_set})
+
