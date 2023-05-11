@@ -28,6 +28,7 @@
                     <div class="song-actions">
                         <button class="play-button">Play</button>
                         <button class="add-to-playlist-button">Add to Playlist</button>
+                        <a href="{% url 'song_edit' song.pk %}"><button class="add-to-playlist-button">Edit song</button></a>
                     </div>
                 </div>
             {% endfor %}

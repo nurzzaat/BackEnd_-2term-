@@ -1,7 +1,7 @@
 from msilib.schema import ListView
 
-from django.shortcuts import render, get_object_or_404
-
+from django.shortcuts import render, get_object_or_404, redirect
+from .forms import SongForm
 from .models import (User, Artist, Album, Song, Playlist, PlaylistSong)
 
 
@@ -74,5 +74,17 @@ def search_song(request, name):
     print(list_of_songs)
     return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
 
+def song_edit(request, song_pk):
+    song = Song.objects.get(pk=song_pk)
+
+    if request.method == 'POST':
+        form = SongForm(request.POST, request.FILES, instance=song)
+        if form.is_valid():
+            form.save()
+            return redirect('albums')
+    else:
+        form = SongForm(instance=song)
+
+    return render(request, 'song_edit.html', {'form': form})
 
 

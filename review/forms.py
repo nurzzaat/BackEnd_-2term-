@@ -1,4 +1,6 @@
 from django import forms
+from .models import Song
+
 
 class SearchForm(forms.Form):
     search = forms.CharField(required=False, min_length=3)
@@ -7,3 +9,15 @@ class SearchForm(forms.Form):
                                       ("title", "Title"),
                                       ("contributor", "Contributor")
                                   ))
+
+
+class SongForm(forms.ModelForm):
+    class Meta:
+        model = Song
+        fields = ['name', 'artist', 'album', 'length']
+        labels = {
+            'name': 'Song Name',
+            'length': 'Length (in seconds)',
+            'artist': 'Artist Name',
+            'album': 'Album Name'
+        }
