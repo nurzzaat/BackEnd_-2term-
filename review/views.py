@@ -1,3 +1,5 @@
+from msilib.schema import ListView
+
 from django.shortcuts import render, get_object_or_404
 
 from .models import (User, Artist, Album, Song, Playlist, PlaylistSong)
@@ -44,7 +46,6 @@ def albums_in_genre(request, genre_name):
     albums = Album.objects.all()
     albums_of_one_genre = []
 
-    print("rbrbrtb")
     for album in albums:
         if genre_name == album.genre:
             albums_of_one_genre.append(album)
@@ -59,13 +60,19 @@ def songs_detail(request, album_name, pk):
 
     return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
 
-def get_songs(request, song_name):
+
+def search_song(request, name):
+    name = request.GET.get('search')
     songs = Song.objects.all()
     list_of_songs = []
 
     for song in songs:
-        if song.name == song_name:
+        if song.name == name:
             list_of_songs.append(song)
 
+
+    print(list_of_songs)
     return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
+
+
 

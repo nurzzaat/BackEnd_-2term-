@@ -11,8 +11,7 @@
                 Millions of songs. No credit card needed.
             </p>
             <div class="mt-8">
-                <form action="/search//" method="POST">
-                     {% csrf_token %}
+                <form action="/search_results">
 
                     <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto py-3 px-3 sm:px-6 lg:px-8">
                         <input type="text" name="search" id="search" placeholder="Search"
