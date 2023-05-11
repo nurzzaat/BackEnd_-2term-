@@ -3,10 +3,17 @@
 
 {% block content %}
     <div class="song-detail">
-        <img class="album-cover" src="{% static 'Spotify-App-Icon-Large.png' %}" alt="{{ song.album }}">
+
+
 
 
         {% for song in list_of_songs %}
+            {% if song.cover %}
+                <img class="album-cover" src="{{ song.cover.url }}" alt="{{ song.album }}">
+            {% else %}
+                <img class="album-cover" src="{% static 'Spotify-App-Icon-Large.png' %}" alt="{{ song.album }}">
+            {% endif %}
+
 
             <div class="song-info">
                 <h1 class="song-title">{{ song.name }}</h1>

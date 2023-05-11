@@ -29,6 +29,7 @@ class Song(models.Model):
     length = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    cover = models.ImageField(null=True, blank=True, upload_to="song_covers/")
 
 class Playlist(models.Model):
     name = models.CharField(max_length=255)
