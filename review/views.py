@@ -1,8 +1,8 @@
 from msilib.schema import ListView
 
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import SongForm
 from .models import (User, Artist, Album, Song, Playlist, PlaylistSong)
+from .forms import *
 
 
 def index(request):
@@ -32,6 +32,22 @@ def album_detail(request, pk):
     return render(request, "album_songs.html", {'songs': songs, 'album': album})
 
 def genre_list(request):
+    search_text = request.GET.get("search", "")
+    form = SearchForm(request.GET)
+    songs = set()
+
+    if form.is_valid() and form.cleaned_data["search"]:
+        search = form.cleaned_data["search"]
+        search_in = form.cleaned_data.get("search_in") or "Song"
+        if search_in == "Song":
+            songs = Song.objects.filter(name__icontains=search)
+        else:
+            artist_names = Artist.objects.filter(name__icontains=search)
+
+            for artist in artist_names:
+                for song in artist.song_set.all():
+                    songs.add(song)
+
     albums = Album.objects.all()
     genre_set = set()
 
@@ -40,7 +56,7 @@ def genre_list(request):
             break
         genre_set.add(album.genre)
 
-    return render(request, "search.html", {'genre_set': genre_set})
+    return render(request, "search.html", {'form': form, "search_text": search_text, "songs": songs, 'genre_set': genre_set})
 
 def albums_in_genre(request, genre_name):
     albums = Album.objects.all()
@@ -53,7 +69,14 @@ def albums_in_genre(request, genre_name):
     return render(request, "albums_of_one_genre.html", {'genre': genre_name, 'albums_of_one_genre': albums_of_one_genre})
 
 
-def songs_detail(request, album_name, pk):
+def songs_detail_for_home(request, album_name, pk):
+    song = Song.objects.get(pk=pk)
+    list_of_songs = []
+    list_of_songs.append(song)
+
+    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
+
+def songs_detail_for_search(request, pk):
     song = Song.objects.get(pk=pk)
     list_of_songs = []
     list_of_songs.append(song)
@@ -70,8 +93,6 @@ def search_song(request, name):
         if song.name == name:
             list_of_songs.append(song)
 
-
-    print(list_of_songs)
     return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
 
 def song_edit(request, song_pk):

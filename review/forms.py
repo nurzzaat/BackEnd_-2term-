@@ -3,12 +3,12 @@ from .models import Song
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(required=False, min_length=3)
+    search = forms.CharField(required=False, min_length=2)
     search_in = forms.ChoiceField(required=False,
                                   choices=(
-                                      ("title", "Title"),
-                                      ("contributor", "Contributor")
-                                  ))
+                                      ("Song", "Song"),
+                                      ("Artist", "Artist")))
+
 
 
 class SongForm(forms.ModelForm):
