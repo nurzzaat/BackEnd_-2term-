@@ -14,7 +14,7 @@ class SearchForm(forms.Form):
 class SongForm(forms.ModelForm):
     class Meta:
         model = Song
-        fields = ['name', 'artist', 'album', 'length']
+        fields = ['name', 'artist', 'album', 'length', 'cover']
         labels = {
             'name': 'Song Name',
             'length': 'Length (in seconds)',
