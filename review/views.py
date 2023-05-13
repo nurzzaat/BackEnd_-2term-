@@ -71,21 +71,9 @@ def albums_in_genre(request, genre_name):
                   {'genre': genre_name, 'albums_of_one_genre': albums_of_one_genre})
 
 
-def songs_detail_for_home(request, album_name, pk):
+def songs_detail(request, pk):
     song = Song.objects.get(pk=pk)
-    list_of_songs = []
-    list_of_songs.append(song)
-
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
-
-
-def songs_detail_for_search(request, pk):
-    song = Song.objects.get(pk=pk)
-    list_of_songs = []
-    list_of_songs.append(song)
-
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
-
+    return render(request, "song_detail.html", {'song': song})
 
 def search_song(request, name):
     name = request.GET.get('search')
@@ -106,9 +94,10 @@ def song_edit(request, song_pk):
         form = SongForm(request.POST, request.FILES, instance=song)
         if form.is_valid():
             song_instance = form.save(commit=False)
-            song_instance.cover = request.FILES['cover']
+            if 'cover' in request.FILES:
+                song_instance.cover = request.FILES['cover']
             song_instance.save()
-            return redirect('albums')
+            return redirect('song_detail', song_pk)
     else:
         form = SongForm(instance=song)
 
