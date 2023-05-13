@@ -13,7 +13,7 @@ urlpatterns = [
 #    path('search/<int:pk>', views.songs_detail_for_search, name='song_detail'),
     path('albums/<int:pk>/', views.album_detail),
     path('genre/<str:genre_name>/', views.albums_in_genre),
-    #path('albums/<str:album_name>/<int:pk>/', views.songs_detail_for_home),
+    path('albums/<str:album_name>/<int:pk>/', views.songs_detail),
     path('songedit/<int:song_pk>/', views.song_edit, name='song_edit'),
 ]
 

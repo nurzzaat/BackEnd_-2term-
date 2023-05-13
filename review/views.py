@@ -1,7 +1,7 @@
 from .forms import SongForm, RegistrationForm
 from .models import (Artist, Album, Song, Playlist, PlaylistSong)
 from django.contrib import messages
-from django.contrib.auth.models import User, auth
+from django.contrib.auth.models import auth
 from django.shortcuts import render, get_object_or_404, redirect
 
 def index(request):
