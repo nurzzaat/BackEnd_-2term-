@@ -160,3 +160,4 @@ def user_login(request):
 def logout_user(request):
     auth.logout(request)
     return redirect('albums')
+

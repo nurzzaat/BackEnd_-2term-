@@ -2,8 +2,7 @@
 
 {% block content %}
     <div class="container">
-        <h1>Альбом - {{ playlist.name }}</h1>
-
+        <h1>Плэйлист - {{ playlist.name }}</h1>
         <ul class="songs">
             {% for song in songs %}
                 <a href="/song/{{ song.song.pk }}/">
@@ -13,6 +12,5 @@
                 </a>
             {% endfor %}
         </ul>
-
     </div>
 {% endblock %}
