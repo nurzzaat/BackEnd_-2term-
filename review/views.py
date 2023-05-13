@@ -1,8 +1,9 @@
-from .forms import SongForm, RegistrationForm
+from .forms import *
 from .models import (Artist, Album, Song, Playlist, PlaylistSong)
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.shortcuts import render, get_object_or_404, redirect
+
 
 def index(request):
     return render(request, "base.html")
@@ -30,6 +31,22 @@ def album_detail(request, pk):
 
 
 def genre_list(request):
+    search_text = request.GET.get("search", "")
+    form = SearchForm(request.GET)
+    songs = set()
+
+    if form.is_valid() and form.cleaned_data["search"]:
+        search = form.cleaned_data["search"]
+        search_in = form.cleaned_data.get("search_in") or "Song"
+        if search_in == "Song":
+            songs = Song.objects.filter(name__icontains=search)
+        else:
+            artist_names = Artist.objects.filter(name__icontains=search)
+
+            for artist in artist_names:
+                for song in artist.song_set.all():
+                    songs.add(song)
+
     albums = Album.objects.all()
     genre_set = set()
 
@@ -38,7 +55,8 @@ def genre_list(request):
             break
         genre_set.add(album.genre)
 
-    return render(request, "search.html", {'genre_set': genre_set})
+    return render(request, "search.html",
+                  {'form': form, "search_text": search_text, "songs": songs, 'genre_set': genre_set})
 
 
 def albums_in_genre(request, genre_name):
@@ -53,7 +71,15 @@ def albums_in_genre(request, genre_name):
                   {'genre': genre_name, 'albums_of_one_genre': albums_of_one_genre})
 
 
-def songs_detail(request, album_name, pk):
+def songs_detail_for_home(request, album_name, pk):
+    song = Song.objects.get(pk=pk)
+    list_of_songs = []
+    list_of_songs.append(song)
+
+    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
+
+
+def songs_detail_for_search(request, pk):
     song = Song.objects.get(pk=pk)
     list_of_songs = []
     list_of_songs.append(song)
@@ -70,17 +96,18 @@ def search_song(request, name):
         if song.name == name:
             list_of_songs.append(song)
 
-    print(list_of_songs)
     return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
 
 
 def song_edit(request, song_pk):
-    song = Song.objects.get(pk=song_pk)
+    song = get_object_or_404(Song, pk=song_pk)
 
     if request.method == 'POST':
         form = SongForm(request.POST, request.FILES, instance=song)
         if form.is_valid():
-            form.save()
+            song_instance = form.save(commit=False)
+            song_instance.cover = request.FILES['cover']
+            song_instance.save()
             return redirect('albums')
     else:
         form = SongForm(instance=song)
