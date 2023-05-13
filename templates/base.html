@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <title>Spotify</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
@@ -10,20 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
           integrity="sha512-eQ+BcrT60Snb08JyZ3k01IpjkqbzK42ojUxPNC0yfh+JbIK+hXXLdjBZ4mcU3fcgMu7ghxFTQ+oD11/GjT+9aQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'main.css' %}">
-
 </head>
 <body>
 
-<nav class="bg-gray-800">
+<nav class="bg-gray-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
-                    <img class="h-8 w-8" src="https://www.scdn.co/i/_global/favicon.png" alt="Spotify Logo">
+                    <img class="h-8 w-8" src="https://icons.veryicon.com/png/128/brands/brand-1/spotify-44.png"
+                         alt="Spotify Logo">
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline">
                         <a href="/albums/"
+<<<<<<< HEAD
                            class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700"><i class="fas fa-home;"></i>Home</a>
                         <a href="{% url 'song_search' %}"
                            class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"><i class="fas fa-search mr-2"></i>Search</a>
@@ -39,6 +40,24 @@
                             {% else %}onclick="authenticate()" href="#"{% endif %}>
                             <i class="fas fa-plus"></i>
                             Create playlist</a>
+=======
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/albums/' %}active" style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"><img
+                                style="float:left;margin-right:7px" width="19px" height="19px"
+                                src="https://icons.veryicon.com/png/128/miscellaneous/fs-icon/home-227.png"> Home</a>
+
+                        <a href="{% url 'song_search' %}"
+                           id="2"
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/search/' %}active" style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"><img
+                                style="float:left;margin-right:7px " width="18px" height="18px"
+                                src="https://icons.veryicon.com/png/o/business/official-icon-of-the-insurer/search-225.png">Search</a>
+
+                        <a id="3"
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/my_library/' %}active" style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"
+                                {% if user.is_authenticated %} href="{% url 'my_library' %}"
+                                {% else %} onclick="authenticate()" href="#"{% endif %}><img
+                                style="float:left;margin-right:7px " width="20px" height="20px"
+                                src="https://icons.veryicon.com/png/o/miscellaneous/dowell/playlist-7.png">Your Library</a>
+>>>>>>> b19a194f4e8e56a30ca7b307b3355ad8f642b89b
                     </div>
                 </div>
             </div>
@@ -47,26 +66,23 @@
 
                     <div class="ml-3 relative">
                         <div>
+                            <button style="float: left;margin-right: 30px" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
+                                    id="user-menu" aria-label="User menu" aria-haspopup="true">
+                                {% if user.is_authenticated %}
+                                    <span><a style="color: white;text-decoration:none;font-size: 18px" href="#">{{ request.user }}</a></span>
+                                {% endif %}
+                            </button>
 
                             {% if user.is_authenticated %}
 
                                 <div style="float:left; color:white;margin-right: 20px;">
-                                    <a href="{% url 'logout' %}">Log Out</a>
+                                    <a style="color:white;text-decoration: none" href="{% url 'logout' %}">Log Out</a>
                                 </div>
                             {% else %}
                                 <div style="float:left; color:white;margin-right: 20px;">
-                                    <a href="{% url 'login' %}">Log In</a>
+                                    <a style="color:white;text-decoration: none" href="{% url 'login' %}">Log In</a>
                                 </div>
                             {% endif %}
-
-                            <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
-                                    id="user-menu" aria-label="User menu" aria-haspopup="true">
-                                {% if user.is_authenticated %}
-                                    <img class="h-8 w-8 rounded-full"
-                                         src="https://avatars.githubusercontent.com/u/65207586?s=200&v=4" alt="">
-                                    <li><a style="color: white;" href="#">{{ request.user }}</a></li>
-                                {% endif %}
-                            </button>
                         </div>
                     </div>
                 </div>
