@@ -74,7 +74,7 @@ def albums_in_genre(request, genre_name):
 
 
 def songs_detail_for_home(request, album_name, pk):
-    song = Song.objects.get(pk=pk)
+    song = Song.objectgs.get(pk=pk)
     list_of_songs = []
     list_of_songs.append(song)
     artist = Artist.objects.get(pk=song.artist_id)
