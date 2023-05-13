@@ -4,25 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fb37efc-8eab-4d7b-98e7-16d6d29b6988" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/backend_final.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/backend_final.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5fb37efc-8eab-4d7b-98e7-16d6d29b6988" name="Changes" comment="navbar">
+      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_final/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_final/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/review/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/song_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/song_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/review/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/review/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/review/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/review/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,12 +36,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Admin/Documents/GitHub/backend_final/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Documents\GitHub\backend_final\templates" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="backend_final" type="Python.DjangoServer" factoryName="Django server">
       <module name="backend_final" />
@@ -79,11 +82,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684007856804</updated>
-      <workItem from="1684007858087" duration="2255000" />
+      <workItem from="1684007858087" duration="6510000" />
     </task>
+    <task id="LOCAL-00001" summary="navbar">
+      <created>1684010318678</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684010318678</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="navbar" />
   </component>
 </project>

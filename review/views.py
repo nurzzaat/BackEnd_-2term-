@@ -137,3 +137,9 @@ def user_login(request):
 def logout_user(request):
     auth.logout(request)
     return redirect('albums')
+
+@login_required
+def profile(request):
+    user = request.user
+    permissions = user.get_all_permissions()
+    return render(request, 'profile.html', {'user': user, 'permissions': permissions})
