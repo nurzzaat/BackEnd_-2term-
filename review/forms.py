@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 from django import forms
 
-from .models import Song, User
+from .models import Song, User, Playlist
 
 
 class SearchForm(forms.Form):
@@ -30,6 +30,11 @@ class SongForm(forms.ModelForm):
             'artist': 'Artist Name',
             'album': 'Album Name'
         }
+
+class PlayListForm(forms.ModelForm):
+    class Meta:
+        model = Playlist
+        fields = ['user', 'name', 'description']
 
 
 class RegistrationForm(UserCreationForm):

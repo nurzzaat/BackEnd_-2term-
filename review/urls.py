@@ -14,7 +14,10 @@ urlpatterns = [
     path('genre/<str:genre_name>/', views.albums_in_genre),
     path('song/<int:pk>/', views.songs_detail, name='song_detail'),
     path('songedit/<int:song_pk>/', views.song_edit, name='song_edit'),
+    path('my_library/', views.my_library, name='my_library'),
+    path('create_playlist/', views.create_playlist, name='create_playlist'),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

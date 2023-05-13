@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mx-auto px-4 py-8">
+
+  <h1 class="text-3xl font-bold text-white mb-8">Create new playlist</h1>
+
+  <form method="POST" action="{% url 'create_playlist' %}">
+    {% csrf_token %}
+      <input type="hidden" name="user" value="{{ request.user.id }}">
+
+      <div class="mb-4">
+          <label for="playlist_name" class="block text-white font-bold mb-2">Playlist name:</label>
+          <input type="text" id="playlist_name" name="name"
+                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                 required>
+      </div>
+
+      <div class="mb-4">
+          <label for="playlist_description" class="block text-white font-bold mb-2">Playlist description:</label>
+          <textarea id="playlist_description" name="description"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+      </div>
+
+
+      <div class="flex justify-end">
+          <button type="submit"
+                  class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+              Create
+          </button>
+      </div>
+  </form>
+</div>
+
+{% endblock %}

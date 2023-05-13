@@ -21,4 +21,10 @@ class Migration(migrations.Migration):
         migrations.DeleteModel(
             name='User',
         ),
+        migrations.AddField(
+            model_name='playlist',
+            name='description',
+            field=models.CharField(default='My Playlist', max_length=100),
+            preserve_default=False,
+        ),
     ]
