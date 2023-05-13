@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Login Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
-  </head>
-  <body class="bg-gray-900">
-    <div class="flex h-screen">
-      <div class="m-auto">
+</head>
+<body class="bg-gray-900">
+<div class="flex h-screen">
+    <div class="m-auto">
         <div class="w-full max-w-xs">
-          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h1 class="text-center font-bold text-gray-800 text-2xl mb-6">Login</h1>
-            <div class="mb-4">
-              <label class="block text-gray-700 font-bold mb-2" for="username">
-                Username
-              </label>
-              <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Enter your username">
-            </div>
-            <div class="mb-6">
-              <label class="block text-gray-700 font-bold mb-2" for="password">
-                Password
-              </label>
-              <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="Enter your password">
-            </div>
-            <div class="flex items-center justify-between">
-              <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                Sign In
-              </button>
-              <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-gray-800" href="#">
-                Forgot Password?
-              </a>
-            </div>
-          </form>
-          <p class="text-center text-gray-500 text-xs">
-            &copy;2023 Spotify, Inc. All rights reserved.
-          </p>
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST">
+                {% csrf_token %}
+                <h1 class="text-center font-bold text-gray-800 text-2xl mb-6">Login</h1>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-bold mb-2" for="username">
+                        Username
+                    </label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                           id="username" name="username" type="text" placeholder="Enter your username" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-bold mb-2" for="password">
+                        Password
+                    </label>
+                    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                           id="password" name="password" type="password" placeholder="Enter your password" required>
+                </div>
+                <input class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="submit" value="Sign In">
+                <div class="flex items-center justify-between">
+                    <a class="inline-block align-baseline font-bold text-sm text-gray-500 hover:text-gray-800"
+                       href="{% url 'register' %}">
+                        Don't have an account?
+                    </a>
+                </div>
+            </form>
+            <p class="text-center text-gray-500 text-xs">
+                &copy;2023 Spotify, Inc. All rights reserved.
+            </p>
         </div>
-      </div>
     </div>
-  </body>
+</div>
+</body>
 </html>

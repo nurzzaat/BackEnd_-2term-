@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/backend_final.iml" filepath="$PROJECT_DIR$/.idea/backend_final.iml" />
+      <module fileurl="file://$USER_HOME$/PycharmProjects/ass6/.idea/bookr.iml" filepath="$USER_HOME$/PycharmProjects/ass6/.idea/bookr.iml" />
     </modules>
   </component>
 </project>

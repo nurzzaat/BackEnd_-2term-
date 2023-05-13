@@ -34,10 +34,25 @@
 
                     <div class="ml-3 relative">
                         <div>
+
+                            {% if user.is_authenticated %}
+
+                                <div style="float:left; color:white;margin-right: 20px;">
+                                    <a href="{% url 'logout' %}">Log Out</a>
+                                </div>
+                            {% else %}
+                                <div style="float:left; color:white;margin-right: 20px;">
+                                    <a href="{% url 'login' %}">Log In</a>
+                                </div>
+                            {% endif %}
+
                             <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
                                     id="user-menu" aria-label="User menu" aria-haspopup="true">
-                                <img class="h-8 w-8 rounded-full"
-                                     src="https://avatars.githubusercontent.com/u/65207586?s=200&v=4" alt="">
+                                {% if user.is_authenticated %}
+                                    <img class="h-8 w-8 rounded-full"
+                                         src="https://avatars.githubusercontent.com/u/65207586?s=200&v=4" alt="">
+                                    <li><a style="color: white;" href="#">{{ request.user }}</a></li>
+                                {% endif %}
                             </button>
                         </div>
                     </div>
