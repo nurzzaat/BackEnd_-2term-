@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import UserCreationForm
-from django.utils.translation import gettext_lazy as _
 
 from django import forms
 
@@ -30,6 +29,7 @@ class SongForm(forms.ModelForm):
             'artist': 'Artist Name',
             'album': 'Album Name'
         }
+
 
 
 class RegistrationForm(UserCreationForm):
