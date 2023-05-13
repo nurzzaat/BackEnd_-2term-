@@ -14,9 +14,10 @@ class SearchForm(forms.Form):
                                       ("Artist", "Artist")),
                                   widget=forms.Select(attrs={
                                       'class': 'my-select-class',
-                                      'style': 'width: 250px; height: 30px; border: 1px solid #ccc; border-radius: 4px; padding: 5px; font-size: 16px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);'
+                                      'style': 'width: 250px; height: 30px; border: 1px solid #ccc; border-radius: '
+                                               '4px; padding: 5px; font-size: 16px; box-shadow: 0 0 5px rgba(0, 0, 0,'
+                                               ' 0.3);'
                                   }))
-
 
 
 class SongForm(forms.ModelForm):
@@ -39,9 +40,10 @@ class RegistrationForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'my-class',
                                                              'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
     password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class': 'my-class',
-                                                                  'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
-    password_conf = forms.CharField(label="Password Confirmation", widget=forms.PasswordInput(attrs={'class': 'my-class',
-                                                                  'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
+                                                                                   'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
+    password_conf = forms.CharField(label="Password Confirmation",
+                                    widget=forms.PasswordInput(attrs={'class': 'my-class',
+                                                                      'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
 
     class Meta:
         model = User
