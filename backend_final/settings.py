@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 # from pathlib import Path
 import os
-#from crispy_forms import __version__ as CRISPY_FORMS_VERSION
+from crispy_forms import __version__ as CRISPY_FORMS_VERSION
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'review.apps.ReviewConfig',
     'crispy_forms',
-    #'crispy_bootstrap4',
+    # 'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [

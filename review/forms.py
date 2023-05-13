@@ -39,12 +39,15 @@ class RegistrationForm(UserCreationForm):
     }))
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'my-class',
                                                              'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
-    password = forms.CharField(label="Password", widget=forms.PasswordInput(attrs={'class': 'my-class',
-                                                                                   'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
-    password_conf = forms.CharField(label="Password Confirmation",
-                                    widget=forms.PasswordInput(attrs={'class': 'my-class',
-                                                                      'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
+
+    password1 = forms.CharField(label="Password", required=True, widget=forms.PasswordInput(attrs={
+        'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: 4px;'}))
+
+    password2 = forms.CharField(label="Password Confirmation", required=True,
+                                    widget=forms.PasswordInput(attrs={
+                                        'style': 'width: 250px; height: 30px; border: 1px solid black; border-radius: '
+                                                 '4px;'}))
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'password_conf')
+        fields = ('username', 'email', 'password1', 'password2')
