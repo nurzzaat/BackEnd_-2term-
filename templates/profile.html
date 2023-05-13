@@ -3,14 +3,12 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
+    <div>
     <ul>
-        <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Username:    <span
-                style="color: white;">{{ user.username }} </span></span></li>
-        <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Date Joined: <span
-                style="color: white;">{{ user.date_joined }} </span></span></li>
-        <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Email: <span
-                style="color: white;">{{ user.email }}</span></li>
-        <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Last Login: <span
-                style="color: white;">{{ user.last_login }}</span></li>
-    </ul>
+      <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Username:    <span style="color: white;">{{ user.username }} </span></span></li>
+      <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Date Joined: <span style="color: white;">{{ user.date_joined }} </span></span></li>
+        <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Email: <span style="color: white;">{{ user.email }}</span></span></li>
+        <li style="padding: 5px 0"><span style="color: grey;padding: 10px 0 10px 20px">Last Login: <span style="color: white;">{{ user.last_login }}</span></span></li>
+  </ul>
+    </div>
 {% endblock %}
