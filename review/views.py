@@ -73,21 +73,7 @@ def albums_in_genre(request, genre_name):
                   {'genre': genre_name, 'albums_of_one_genre': albums_of_one_genre})
 
 
-def songs_detail_for_home(request, album_name, pk):
-    song = Song.objectgs.get(pk=pk)
-    list_of_songs = []
-    list_of_songs.append(song)
-    artist = Artist.objects.get(pk=song.artist_id)
 
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs, 'artist': artist})
-
-def songs_detail_for_search(request, pk):
-    song = Song.objects.get(pk=pk)
-    list_of_songs = []
-    list_of_songs.append(song)
-    artist = Artist.objects.get(pk=song.artist_id)
-
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs, 'artist': artist})
 
 def song_edit(request, song_pk):
     song = get_object_or_404(Song, pk=song_pk)
