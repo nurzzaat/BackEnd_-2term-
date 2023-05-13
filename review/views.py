@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+
 from .forms import *
 from .models import (Artist, Album, Song, Playlist, PlaylistSong)
 from django.contrib import messages
@@ -102,6 +104,11 @@ def song_edit(request, song_pk):
         form = SongForm(instance=song)
 
     return render(request, 'song_edit.html', {'form': form})
+
+@login_required
+def my_library(request):
+    user_playlists = Playlist.objects.filter(user=request.user)
+    return render(request, 'my_library.html', {'playlists': user_playlists})
 
 
 def register(request):

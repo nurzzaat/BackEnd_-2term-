@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="mb-4">Моя медиатека</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for playlist in playlists %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{% if playlist.songs.count > 0 %}{{ playlist.songs.first.cover.url }}{% else %}https://via.placeholder.com/250x250.png?text=No+Cover{% endif %}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ playlist.name }}</h5>
+                            <p class="card-text">{{ playlist.description }}</p>
+                            <a href="{#% url 'playlist_detail' playlist.pk %#}" class="btn btn-primary">Открыть</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>У вас пока нет ни одного плейлиста</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

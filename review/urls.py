@@ -10,11 +10,11 @@ urlpatterns = [
     path("logout_user", views.logout_user, name="logout"),
     path('albums/', views.album_list, name='albums'),
     path('search/', views.genre_list, name='song_search'),
-    # path('search/<int:pk>', views.songs_detail_for_search, name='song_detail'),
     path('albums/<int:pk>/', views.album_detail),
     path('genre/<str:genre_name>/', views.albums_in_genre),
     path('song/<int:pk>/', views.songs_detail, name='song_detail'),
     path('songedit/<int:song_pk>/', views.song_edit, name='song_edit'),
+    path('my_library/', views.my_library, name='my_library'),
 ]
 
 if settings.DEBUG:
