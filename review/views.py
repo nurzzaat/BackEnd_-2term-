@@ -4,7 +4,12 @@ from .forms import *
 from .models import (Artist, Album, Song, Playlist, PlaylistSong)
 from django.contrib import messages
 from django.contrib.auth.models import auth
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
+
+
+
+def index(request):
+    return render(request, "base.html")
 
 
 def album_list(request):
@@ -24,12 +29,6 @@ def album_detail(request, pk):
     songs = Song.objects.filter(album__name=album.name)
 
     return render(request, "album_songs.html", {'songs': songs, 'album': album})
-
-
-def playlist_detail(request, pk):
-    playlist = Playlist.objects.get(pk=pk)
-    songs = PlaylistSong.objects.filter(playlist=playlist)
-    return render(request, "playlist_songs.html", {'playlist': playlist, 'songs': songs})
 
 
 def genre_list(request):
@@ -75,9 +74,7 @@ def albums_in_genre(request, genre_name):
 
 def songs_detail(request, pk):
     song = Song.objects.get(pk=pk)
-
     return render(request, "song_detail.html", {'song': song})
-
 
 def search_song(request, name):
     name = request.GET.get('search')
@@ -107,25 +104,10 @@ def song_edit(request, song_pk):
 
     return render(request, 'song_edit.html', {'form': form})
 
-
 @login_required
 def my_library(request):
     user_playlists = Playlist.objects.filter(user=request.user)
     return render(request, 'my_library.html', {'playlists': user_playlists})
-
-
-def add_song_to_playlist(request, pk):
-    song = Song.objects.get(pk=pk)
-    playlists = Playlist.objects.filter(user=request.user)
-
-    if request.method == 'POST':
-        playlist_id = request.POST.get('playlist')
-        playlist = Playlist.objects.get(pk=playlist_id)
-        if not PlaylistSong.objects.filter(playlist=playlist, song=song).exists():
-            PlaylistSong.objects.create(playlist=playlist, song=song)
-        return redirect('playlist_detail', pk=playlist_id)
-
-    return render(request, 'add_song_to_playlist.html', {'playlists': playlists, 'song': song})
 
 
 def register(request):
@@ -151,7 +133,7 @@ def user_login(request):
             auth.login(request, user)
             return redirect('albums')
         else:
-            messages.error(request, 'Invalid Username or Password')
+            messages.info(request, 'Invalid Username or Password')
             return redirect('login')
     else:
         return render(request, 'login.html')
@@ -160,3 +142,16 @@ def user_login(request):
 def logout_user(request):
     auth.logout(request)
     return redirect('albums')
+
+def create_playlist(request):
+    if request.method == 'POST':
+        form = PlayListForm(request.POST)
+        form.user = request.POST.get('user')
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/my_library')
+    else:
+        form = PlayListForm()
+    return render(request, 'create_playlist.html', {'form': form})
+
+
