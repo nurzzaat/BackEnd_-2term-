@@ -7,10 +7,6 @@ from django.contrib.auth.models import auth
 from django.shortcuts import render, get_object_or_404, redirect
 
 
-def index(request):
-    return render(request, "base.html")
-
-
 def album_list(request):
     albums = Album.objects.all()
     albums_with_genre = {}
@@ -25,9 +21,7 @@ def album_list(request):
 
 def album_detail(request, pk):
     album = Album.objects.get(pk=pk)
-    # print(album.name)
     songs = Song.objects.filter(album__name=album.name)
-    # print(songs)
 
     return render(request, "album_songs.html", {'songs': songs, 'album': album})
 
@@ -134,7 +128,7 @@ def user_login(request):
             auth.login(request, user)
             return redirect('albums')
         else:
-            messages.info(request, 'Invalid Username or Password')
+            messages.error(request, 'Invalid Username or Password')
             return redirect('login')
     else:
         return render(request, 'login.html')
