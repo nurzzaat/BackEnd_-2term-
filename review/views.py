@@ -77,28 +77,17 @@ def songs_detail_for_home(request, album_name, pk):
     song = Song.objects.get(pk=pk)
     list_of_songs = []
     list_of_songs.append(song)
+    artist = Artist.objects.get(pk=song.artist_id)
 
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
+    return render(request, "song_detail.html", {'list_of_songs': list_of_songs, 'artist': artist})
 
 def songs_detail_for_search(request, pk):
     song = Song.objects.get(pk=pk)
     list_of_songs = []
     list_of_songs.append(song)
+    artist = Artist.objects.get(pk=song.artist_id)
 
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
-
-
-def search_song(request, name):
-    name = request.GET.get('search')
-    songs = Song.objects.all()
-    list_of_songs = []
-
-    for song in songs:
-        if song.name == name:
-            list_of_songs.append(song)
-
-    return render(request, "song_detail.html", {'list_of_songs': list_of_songs})
-
+    return render(request, "song_detail.html", {'list_of_songs': list_of_songs, 'artist': artist})
 
 def song_edit(request, song_pk):
     song = get_object_or_404(Song, pk=song_pk)

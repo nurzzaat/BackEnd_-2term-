@@ -4,6 +4,8 @@
     <div class="container">
         <h1>Альбом - {{ album.name }}</h1>
 
+    {% if songs %}
+
         <ul class="songs">
             {% for song in songs %}
                 <a href="/albums/{{ album.name }}/{{ song.id }}/">
@@ -13,6 +15,9 @@
                 </a>
             {% endfor %}
         </ul>
+    {% else %}
+            <h2>Album is empty</h2>
+    {% endif %}
 
     </div>
 {% endblock %}
