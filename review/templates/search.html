@@ -14,17 +14,17 @@
                 <form>
 
                     <div style="display: flex; flex-direction: column; margin-bottom: 10px">
-                        <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto py-3 px-3 sm:px-6 lg:px-8">
-                            <input type="text" name="search" id="search" placeholder="Search"
-                                   class="flex-1 appearance-none border-2 border-gray-300 rounded-md w-full py-1 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500 focus:ring-green-500">
-                            <button type="submit"
-                                    class="mt-2 sm:mt-0 sm:ml-3 inline-flex items-center px-6 py-2
+                    <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto py-2 px-3 sm:px-6 lg:px-8">
+                        <input type="text" name="search" id="search" placeholder="Search"
+                           class="flex-1 appearance-none border-2 border-gray-300 rounded-md w-full py-1 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500 focus:ring-green-500">
+                        <button type="submit"
+                                class="mt-2 sm:mt-0 sm:ml-3 inline-flex items-center px-6 py-2
                                 border border-transparent text-base font-medium rounded-md shadow-sm
                                 text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2
                                 focus:ring-offset-2 focus:ring-green-500">
                                 Enter
-                            </button>
-                        </div>
+                        </button>
+                    </div>
                         <div style="display: flex; justify-content: center; margin-right: 100px">  {{ form.search_in }} </div>
                     </div>
                 </form>
@@ -33,13 +33,13 @@
                     <h3 style="color: white">Search Results for <em>{{ search_text }}</em></h3>
                     <ul>
 
-                        {% for song in songs %}
-                            <li class="list-group-item">
-                                <span class="text-info">Title: </span> <a
-                                    href="{% url 'song_detail' song.pk %}">{{ song }}</a>
-                                <br/>
-                                <span class="text-info">Artist: </span> {{ song.artist }}
-                            </li>
+                    {% for song in songs %}
+                        <li class="list-group-item">
+                            <span class="text-info">Title: </span> <a
+                                href="{% url 'song_detail' song.pk %}">{{ song }}</a>
+                            <br/>
+                            <span class="text-info">Artist: </span> {{ song.artist }}
+                        </li>
                         {% empty %}
                             <li class="list-group-item">No results found.</li>
                         {% endfor %}
@@ -60,25 +60,24 @@
 
                     {% for genre in genre_set %}
 
-                        <div class="group relative">
+                    <div class="group relative">
 
-                            <div class="relative w-full h-80 rounded-lg overflow-hidden">
-                                <img src="https://source.unsplash.com/random/800x800?music" alt="Music"
-                                     class="w-full h-full object-center object-cover">
+                        <div class="relative w-full h-80 rounded-lg overflow-hidden">
+                            <img src="https://source.unsplash.com/random/800x800?music" alt="Music"
+                                class="w-full h-full object-center object-cover">
 
-                                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50 group-hover:opacity-75"></div>
-                                <button class="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 focus:outline-none"
-                                        onclick="window.location.href='/genre/{{ genre }}/'">
-                                    <h1 class="text-lg font-medium font-bold text-white">{{ genre }}</h1>
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-50 group-hover:opacity-75"></div>
+                            <button class="absolute inset-0 w-full h-full flex items-center justify-center opacity-0 group-hover:opacity-100 focus:outline-none" onclick="window.location.href='/genre/{{ genre }}/'">
+                                <h1 class="text-lg font-medium font-bold text-white">{{ genre }}</h1>
 
-                                    <svg class="h-20 w-20 text-white fill-current" viewBox="0 0 20 20"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M7 4v12l9-6-9-6z"/>
-                                    </svg>
-                                </button>
-                            </div>
-
+                                <svg class="h-20 w-20 text-white fill-current" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 4v12l9-6-9-6z"/>
+                                </svg>
+                            </button>
                         </div>
+
+                    </div>
 
                     {% endfor %}
 
@@ -86,4 +85,5 @@
             </div>
         </div>
     </main>
+
 {% endblock %}

@@ -111,6 +111,7 @@ def song_edit(request, song_pk):
 @login_required
 def my_library(request):
     user_playlists = Playlist.objects.filter(user=request.user)
+    
     return render(request, 'my_library.html', {'playlists': user_playlists})
 
 
@@ -166,4 +167,3 @@ def profile(request):
     user = request.user
     permissions = user.get_all_permissions()
     return render(request, 'profile.html', {'user': user, 'permissions': permissions})
-
