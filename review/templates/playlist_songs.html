@@ -2,15 +2,35 @@
 
 {% block content %}
     <div class="container">
-        <h1>Плэйлист - {{ playlist.name }}</h1>
-        <ul class="songs">
-            {% for song in songs %}
-                <a href="/song/{{ song.song.pk }}/">
-                    <li class="song">
-                        {{ song.song }}
-                    </li>
-                </a>
-            {% endfor %}
-        </ul>
+        <h1>Playlist - {{ playlist.name }}</h1>
+
+        {% if songs %}
+
+            <ul class="songs">
+                {% for song in songs %}
+                    <a href="/song/{{ song.song.pk }}/">
+                        <li class="song">
+                            <div style="display: flex; flex-direction: row; justify-content: space-between">
+                                <div>{{ song.song }}</div>
+
+                                <div>
+                                    <form action="{% url 'delete_song_from_playlist' playlist.pk song.song.pk %}"
+                                          method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="delete-button" style="color: #10B981">Delete
+                                        </button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </li>
+
+                    </a>
+                {% endfor %}
+            </ul>
+
+        {% else %}
+            <h3 class="text-white">You haven't added anything to your playlist yet</h3>
+        {% endif %}
     </div>
 {% endblock %}

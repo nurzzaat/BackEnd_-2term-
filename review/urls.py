@@ -15,10 +15,12 @@ urlpatterns = [
     path('genre/<str:genre_name>/', views.albums_in_genre),
     path('song/<int:pk>/', views.songs_detail, name='song_detail'),
     path('songedit/<int:song_pk>/', views.song_edit, name='song_edit'),
-    path('my_library/', views.my_library, name='my_library'),
+    path('my_playlist/', views.my_playlist, name='my_playlist'),
     path('add_song_to_playlist/<int:pk>', views.add_song_to_playlist, name='add_song_to_playlist'),
     path('playlist/<int:pk>', views.playlist_detail, name='playlist_detail'),
     path('create_playlist/', views.create_playlist, name='create_playlist'),
+    path('/delete/<int:playlist_pk>/<int:song_pk>', views.delete_song_from_playlist, name='delete_song_from_playlist'),
+    path('/delete_playlist/<int:pk>', views.delete_playlist, name='delete_playlist')
 ]
 
 if settings.DEBUG:

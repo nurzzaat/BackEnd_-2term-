@@ -151,3 +151,16 @@ h1, h2 {
   outline: none;
   box-shadow: 0 0 0 3px rgba(29, 185, 84, 0.4);
 }
+
+.bg-white .music {
+  position: fixed;  top: 77%;
+  bottom: 5vh;  right: 3vw;
+}
+.bg-white .music .sound-button {  cursor: pointer;
+  width: 25px;
+  transition: 0.25s ease;
+}
+
+.bg-white .music .sound-button.paused {
+  opacity: 0.25;
+}

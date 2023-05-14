@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                <h3 class="mb-4 text-white">Моя медиатека</h3>
+                <h3 class="mb-4 text-white">My playlist</h3>
             </div>
         </div>
 
@@ -16,12 +16,18 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ playlist.name }}</h5>
                             <p class="card-text">{{ playlist.description }}</p>
-                            <a href="{% url 'playlist_detail' playlist.pk %}" class="add-to-playlist-button">Открыть</a>
+                            <a href="{% url 'playlist_detail' playlist.pk %}" class="add-to-playlist-button">Open</a>
+
+                            <form action="{% url 'delete_playlist' playlist.pk %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="add-to-playlist-button">Delete</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
             {% empty %}
-                <p class="text-light">You don't have any playlist yet</p>
+                <h4 class="ml-2 text-white">You don't have any playlist yet</h4>
             {% endfor %}
 
 

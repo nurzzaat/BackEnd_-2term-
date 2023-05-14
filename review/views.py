@@ -29,6 +29,16 @@ def album_detail(request, pk):
 def playlist_detail(request, pk):
     playlist = Playlist.objects.get(pk=pk)
     songs = PlaylistSong.objects.filter(playlist=playlist)
+
+    return render(request, "playlist_songs.html", {'playlist': playlist, 'songs': songs})
+
+def delete_song_from_playlist(request, playlist_pk, song_pk):
+    song = PlaylistSong.objects.filter(playlist_id=playlist_pk, song_id=song_pk)
+    song.delete()
+
+    playlist = Playlist.objects.get(pk=playlist_pk)
+    songs = PlaylistSong.objects.filter(playlist=playlist)
+
     return render(request, "playlist_songs.html", {'playlist': playlist, 'songs': songs})
 
 
@@ -109,10 +119,18 @@ def song_edit(request, song_pk):
 
 
 @login_required
-def my_library(request):
+def my_playlist(request):
     user_playlists = Playlist.objects.filter(user=request.user)
     
     return render(request, 'my_library.html', {'playlists': user_playlists})
+
+def delete_playlist(request, pk):
+    playlist = Playlist.objects.get(pk=pk, user=request.user)
+    playlist.delete()
+
+    user_playlists = Playlist.objects.filter(user=request.user)
+    return render(request, 'my_library.html', {'playlists': user_playlists})
+
 
 
 def add_song_to_playlist(request, pk):
@@ -174,7 +192,7 @@ def create_playlist(request):
         form.user = request.POST.get('user')
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/my_library')
+            return HttpResponseRedirect('/my_playlist')
     else:
         form = PlayListForm()
     return render(request, 'create_playlist.html', {'form': form})
