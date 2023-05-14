@@ -13,8 +13,15 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
+<<<<<<< HEAD
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+=======
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
+>>>>>>> b19a194f4e8e56a30ca7b307b3355ad8f642b89b
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="tailwindcss" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />

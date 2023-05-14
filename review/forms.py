@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 
 from django import forms
 
-from .models import Song, User
+from .models import Song, User, Playlist
 
 
 class SearchForm(forms.Form):
@@ -29,6 +29,11 @@ class SongForm(forms.ModelForm):
             'artist': 'Artist Name',
             'album': 'Album Name'
         }
+
+class PlayListForm(forms.ModelForm):
+    class Meta:
+        model = Playlist
+        fields = ['user', 'name', 'description']
 
 
 
