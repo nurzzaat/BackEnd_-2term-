@@ -11,7 +11,7 @@
           integrity="sha512-eQ+BcrT60Snb08JyZ3k01IpjkqbzK42ojUxPNC0yfh+JbIK+hXXLdjBZ4mcU3fcgMu7ghxFTQ+oD11/GjT+9aQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{% static 'main.css' %}">
-    <script src="../static/audio.js" defer></script>
+    <script src="{% static 'audio.js' %}" defer></script>
 
 </head>
 <body>
@@ -43,15 +43,13 @@
                                 {% if user.is_authenticated %} href="{% url 'my_playlist' %}"
                                 {% else %} onclick="authenticate()" href="#"{% endif %}><img
                                 style="float:left;margin-right:7px " width="20px" height="20px"
-                                src="https://icons.veryicon.com/png/o/miscellaneous/dowell/playlist-7.png">Your Library</a>
+                                src="https://icons.veryicon.com/png/o/miscellaneous/dowell/playlist-7.png">Playlist</a>
 
                         <a class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/create_playlist/' %}active"
                            style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"
                                 {% if user.is_authenticated %} href="{% url 'create_playlist' %}"
                                 {% else %} onclick="authenticate()" href="#"{% endif %}><img
                                 style="float:left;margin-right:7px " width="20px" height="20px"
-                                src="https://icons.veryicon.com/png/o/miscellaneous/cloud-vision-design-group/create-v.png">Create
-                            playlist</a>
                     </div>
                 </div>
             </div>
@@ -97,8 +95,8 @@
 
 <footer class="footer" style="background-color: #ffffff">
 
-    <div class="music"><img class="sound-button paused" src="../static/gif/sound.gif" alt="Alt" />
-    <audio class="audio" src="../static/music/kolenke.mp3" loop></audio></div>
+    <div class="music"><img class="sound-button paused" src="{% static 'gif/sound.gif' %}" alt="Alt" />
+    <audio class="audio" src="{% static 'music/kolenke.mp3' %}" loop></audio></div>
 
     <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-4 lg:px-8">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">

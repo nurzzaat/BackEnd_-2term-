@@ -4,32 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5dddf316-9078-486f-a87d-174863d458bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/song_covers/20190319_1200430.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/song_covers/20190319_1200430_XsJNUjL.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend_final/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend_final/settings.py" afterDir="false" />
+    <list default="true" id="5dddf316-9078-486f-a87d-174863d458bd" name="Changes" comment="add delete playlist fitcha">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/add_song_to_playlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/add_song_to_playlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/album_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/album_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/album_songs.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/album_songs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/albums_of_one_genre.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/albums_of_one_genre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/my_library.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/my_library.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/playlist_songs.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/playlist_songs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/templates/song_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/review/templates/song_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/review/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/review/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/review/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -99,11 +85,23 @@
       <workItem from="1684058818510" duration="4743000" />
       <workItem from="1684064218622" duration="741000" />
       <workItem from="1684069280954" duration="3193000" />
-      <workItem from="1684081960601" duration="3121000" />
+      <workItem from="1684081960601" duration="4387000" />
     </task>
+    <task id="LOCAL-00001" summary="add delete playlist fitcha">
+      <created>1684085221393</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684085221393</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add delete playlist fitcha" />
+    <option name="LAST_COMMIT_MESSAGE" value="add delete playlist fitcha" />
   </component>
 </project>
