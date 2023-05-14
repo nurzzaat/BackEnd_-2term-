@@ -5,7 +5,7 @@
         <h1>Плэйлист - {{ playlist.name }}</h1>
         <ul class="songs">
             {% for song in songs %}
-                <a href="/song/{{ song.song.pk }}/">
+                <a style="text-decoration: none;color: white" href="/song/{{ song.song.pk }}/">
                     <li class="song">
                         {{ song.song }}
                     </li>

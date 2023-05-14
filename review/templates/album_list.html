@@ -9,7 +9,7 @@
                 <h2 >{{ genre }}</h2>
                 <ul class="genre">
                     {% for album in albums %}
-                        <a class="album" href="/albums/{{ album.id }}/">{{ album.name }}<img src="{% static 'Spotify-App-Icon-Large.png' %}" alt=""></a>
+                        <a class="album" style="background-color:#a5a5a5;" href="/albums/{{ album.id }}/">{{ album.name }}<img src="{% static 'Spotify-App-Icon-Large.png' %}" alt=""></a>
                     {% endfor %}
                 </ul>
             {% endfor %}

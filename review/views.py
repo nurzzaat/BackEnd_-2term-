@@ -5,6 +5,9 @@ from .models import (Artist, Album, Song, Playlist, PlaylistSong)
 from django.contrib import messages
 from django.contrib.auth.models import auth
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
+from django.http import FileResponse
+from django.views import View
+import os
 
 
 def album_list(request):
@@ -111,7 +114,7 @@ def song_edit(request, song_pk):
 @login_required
 def my_library(request):
     user_playlists = Playlist.objects.filter(user=request.user)
-    
+
     return render(request, 'my_library.html', {'playlists': user_playlists})
 
 
@@ -162,11 +165,13 @@ def logout_user(request):
     auth.logout(request)
     return redirect('albums')
 
+
 @login_required
 def profile(request):
     user = request.user
     permissions = user.get_all_permissions()
     return render(request, 'profile.html', {'user': user, 'permissions': permissions})
+
 
 def create_playlist(request):
     if request.method == 'POST':

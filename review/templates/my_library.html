@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <h3 class="mb-4 text-white">Моя медиатека</h3>
@@ -10,21 +10,12 @@
 
         <div class="row">
             {% for playlist in playlists %}
-                <div class="col-md-2 mb-2">
-                    <div class="card">
-                        <img src="{% static 'Spotify-App-Icon-Large.png' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ playlist.name }}</h5>
-                            <p class="card-text">{{ playlist.description }}</p>
-                            <a href="{% url 'playlist_detail' playlist.pk %}" class="add-to-playlist-button">Открыть</a>
-                        </div>
-                    </div>
-                </div>
+                <a class="album" style="background-color:#a5a5a5;"
+                   href="{% url 'playlist_detail' playlist.pk %}">{{ playlist.name }}<img
+                        src="{% static 'Spotify-App-Icon-Large.png' %}" alt=""></a>
             {% empty %}
                 <p class="text-light">You don't have any playlist yet</p>
             {% endfor %}
-
-
         </div>
     </div>
 {% endblock %}

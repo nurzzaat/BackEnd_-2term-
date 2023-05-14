@@ -10,7 +10,6 @@ body {
     height: 100vh;
 }
 
-
 /*home css*/
 .container {
     padding: 70px;
@@ -47,6 +46,7 @@ h1, h2 {
     height: 12em;
     width: 8.5em;
     text-align: center;
+    text-decoration: none;
     font-size: 20px;
     font-weight: bold;
     background-color: #181818;
@@ -59,6 +59,8 @@ h1, h2 {
 .album:hover {
     transform: scale(1.05);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color: #31c262;
 }
 
 /* album */
@@ -144,6 +146,8 @@ h1, h2 {
 .play-button:hover,
 .add-to-playlist-button:hover {
   background-color: #1aa34a;
+    text-decoration: none;
+    color: white;
 }
 
 .play-button:focus,
