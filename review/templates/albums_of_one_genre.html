@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block content %}
     <div class="container">
@@ -7,7 +9,7 @@
         <div class="albums">
                 <ul class="genre">
                     {% for album in albums_of_one_genre %}
-                        <a class="album" href="/albums/{{ album.id }}/">{{ album.name }}</a>
+                        <a style="background-color: #a5a5a5" class="album" href="/albums/{{ album.id }}/">{{ album.name }}<img src="{% static 'Spotify-App-Icon-Large.png' %}" alt=""></a>
                     {% endfor %}
                 </ul>
         </div>

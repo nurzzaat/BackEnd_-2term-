@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-          integrity="sha512-eQ+BcrT60Snb08JyZ3k01IpjkqbzK42ojUxPNC0yfh+JbIK+hXXLdjBZ4mcU3fcgMu7ghxFTQ+oD11/GjT+9aQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          integrity="sha512-eQ+BcrT60Snb08JyZ3k01IpjkqbzK42ojUxPNC0yfh+JbIK+hXXLdjBZ4mcU3fcgMu7ghxFTQ+oD11/GjT+9aQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{% static 'main.css' %}">
     <script src="../static/audio.js" defer></script>
 
 </head>
 <body>
 
-<nav class="bg-gray-800">
+<nav style="background-color: #4d535e">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
-                    <img class="h-8 w-8" src="https://www.scdn.co/i/_global/favicon.png" alt="Spotify Logo">
+                    <img class="h-8 w-8" src="https://icons.veryicon.com/png/o/brands/brand-1/spotify-44.png"
+                         alt="Spotify Logo">
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline">
@@ -43,11 +45,13 @@
                                 style="float:left;margin-right:7px " width="20px" height="20px"
                                 src="https://icons.veryicon.com/png/o/miscellaneous/dowell/playlist-7.png">Your Library</a>
 
-                        <a class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                            {% if user.is_authenticated %} href="{% url 'create_playlist' %}"
-                            {% else %}onclick="authenticate()" href="#"{% endif %}>
-                            <i class="fas fa-plus"></i>
-                            Create playlist</a>
+                        <a class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/create_playlist/' %}active"
+                           style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"
+                                {% if user.is_authenticated %} href="{% url 'create_playlist' %}"
+                                {% else %} onclick="authenticate()" href="#"{% endif %}><img
+                                style="float:left;margin-right:7px " width="20px" height="20px"
+                                src="https://icons.veryicon.com/png/o/miscellaneous/cloud-vision-design-group/create-v.png">Create
+                            playlist</a>
                     </div>
                 </div>
             </div>
@@ -55,30 +59,28 @@
                 <div class="ml-4 flex items-center md:ml-6">
 
                     <div class="ml-3 relative">
-                        <div>
-                            <button style="float: left;margin-right: 30px"
-                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
-                                    id="user-menu" aria-label="User menu" aria-haspopup="true">
-                                {% if user.is_authenticated %}
-                                    <span>
-                                    <a href="{% url 'profile' %}"
-                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/accounts/profile/' %}active"
-                                       style="color: white; background-color: gray;font-size: 18px;text-decoration: none{% else %}" style="color: white;text-decoration:none;font-size: 18px{% endif %}">{{ request.user }}</a>
-                                    </span>
-                                {% endif %}
-                            </button>
-
+                        <button style="float: left;margin-right: 30px"
+                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
+                                id="user-menu" aria-label="User menu" aria-haspopup="true">
                             {% if user.is_authenticated %}
+                                <a class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/accounts/profile/' %}active"
+                                   style="color: white; background-color: gray;font-size: 18px;text-decoration: none{% else %}" style="color: white;text-decoration:none;font-size: 18px{% endif %}" href="{% url 'profile' %}"><img
+                                        style="float:left;margin-right:7px " width="20px" height="20px"
+                                        src="https://icons.veryicon.com/png/128/internet--web/three-body-project-icon/user-126.png">{{ request.user }}</a>
 
-                                <div style="float:left; color:white;margin-right: 20px;">
-                                    <a style="color:white;text-decoration: none" href="{% url 'logout' %}">Log Out</a>
-                                </div>
-                            {% else %}
-                                <div style="float:left; color:white;margin-right: 20px;">
-                                    <a style="color:white;text-decoration: none" href="{% url 'login' %}">Log In</a>
-                                </div>
                             {% endif %}
-                        </div>
+                        </button>
+
+                        {% if user.is_authenticated %}
+
+                            <div style="float:left; color:white;margin-right: 20px;margin-top: 8px">
+                                <a style="color:white;text-decoration: none" href="{% url 'logout' %}">Log Out</a>
+                            </div>
+                        {% else %}
+                            <div style="float:left; color:white;margin-right: 20px;margin-top: 8px">
+                                <a style="color:white;text-decoration: none" href="{% url 'login' %}">Log In</a>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -93,40 +95,38 @@
     {% endblock %}
 </div>
 
-<footer class="bg-white">
+<footer class="footer" style="background-color: #ffffff">
 
     <div class="music"><img class="sound-button paused" src="../static/gif/sound.gif" alt="Alt" />
     <audio class="audio" src="../static/music/kolenke.mp3" loop></audio></div>
 
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+    <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:py-4 lg:px-8">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
-            <div class="grid grid-cols-2 gap-8 xl:col-span-2">
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-sm font-medium text-gray-900">
-                            Navigation
-                        </h3>
-                        <ul class="mt-4 space-y-4">
-                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Discover</a></li>
-                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Help Center</a></li>
-                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About Us</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-medium text-gray-900">
-                            Legal
-                        </h3>
-                        <ul class="mt-4 space-y-4">
-                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Privacy Policy</a></li>
-                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Terms of Use</a></li>
-                            <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Cookies</a></li>
-                        </ul>
-                    </div>
+            <div class="grid grid-cols-3 gap-8 xl:col-span-2">
+                <div>
+                    <h5 class=" font-medium text-gray-900 font-weight-bold">
+                        Navigation
+                    </h5>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Discover</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Help Center</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">About Us</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h3 class="text-sm font-medium text-gray-900">
+                    <h5 class="font-medium text-gray-900 font-weight-bold">
+                        Legal
+                    </h5>
+                    <ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Privacy Policy</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Terms of Use</a></li>
+                        <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Cookies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-medium text-gray-900 font-weight-bold">
                         Social Media
-                    </h3>
+                    </h5>
                     <ul class="mt-4 space-y-4">
                         <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Facebook</a></li>
                         <li><a href="#" class="text-base text-gray-500 hover:text-gray-900">Twitter</a></li>
@@ -136,9 +136,9 @@
                 </div>
             </div>
             <div class="mt-8 xl:mt-0">
-                <h3 class="text-sm font-medium text-gray-900">
+                <h5 class="font-medium text-gray-900">
                     Subscribe to our newsletter
-                </h3>
+                </h5>
                 <p class="mt-4 text-sm text-gray-500">Stay up to date on the latest news and updates.</p>
                 <form class="mt-4 sm:flex sm:max-w-md">
                     <label for="email-address" class="sr-only">Email address</label>
@@ -159,7 +159,6 @@
         </div>
     </div>
 </footer>
-
 </body>
 <script>
     function authenticate() {

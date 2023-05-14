@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
     <div class="container">
-        <h1>Альбом - {{ album.name }}</h1>
+        <h1>Album - {{ album.name }}</h1>
 
     {% if songs %}
 
         <ul class="songs">
             {% for song in songs %}
-                <a href="/song/{{ song.id }}/">
+                <a style="text-decoration: none" href="/song/{{ song.id }}/">
                     <li class="song">
                         {{ song.name }}
                     </li>

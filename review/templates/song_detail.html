@@ -24,13 +24,13 @@
             <div class="song-actions">
                 <button class="play-button">Play</button>
                 {% if user.is_authenticated %}
-                    {#                    {% if song.name in Playlist.objects.get(song=) %}#}
-                    <a href="{% url 'add_song_to_playlist' song.pk %}">
-                        <button class="add-to-playlist-button">Add to Playlist</button>
-                    </a>
-                    <a href="{% url 'song_edit' song.pk %}">
-                        <button class="add-to-playlist-button">Edit song</button>
-                    </a>
+                    <a href="{% url 'add_song_to_playlist' song.pk %}"><button class="add-to-playlist-button">Add to Playlist</button></a>
+
+                    {% if user.is_staff or user.is_superuser %}
+                        <a href="{% url 'song_edit' song.pk %}">
+                            <button class="add-to-playlist-button">Edit song</button>
+                        </a>
+                    {% endif %}
                 {% endif %}
             </div>
 

@@ -1,36 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <h3 class="mb-4 text-white">My playlist</h3>
             </div>
         </div>
 
-        <div class="row">
+        <div class="" style="display: flex;">
             {% for playlist in playlists %}
-                <div class="col-md-2 mb-2">
-                    <div class="card">
-                        <img src="{% static 'Spotify-App-Icon-Large.png' %}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ playlist.name }}</h5>
-                            <p class="card-text">{{ playlist.description }}</p>
-                            <a href="{% url 'playlist_detail' playlist.pk %}" class="add-to-playlist-button">Open</a>
+                <div class="" style="display: flex; flex-direction: column">
+                <a class="album" style="background-color:#a5a5a5;"
+                   href="{% url 'playlist_detail' playlist.pk %}">{{ playlist.name }}<img
+                        src="{% static 'Spotify-App-Icon-Large.png' %}" alt=""></a>
 
-                            <form action="{% url 'delete_playlist' playlist.pk %}" method="post" style="display: inline;">
-                                {% csrf_token %}
-                                <button type="submit" class="add-to-playlist-button">Delete</button>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
+                <form action="{% url 'delete_playlist' playlist.pk %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="play-button" style="width: 150px; margin-left: 17px; font-size: 20px; margin-top: 20px; background-color: #c94747">Delete</button>
+                </form>
+</div>
             {% empty %}
                 <h4 class="ml-2 text-white">You don't have any playlist yet</h4>
             {% endfor %}
-
-
         </div>
     </div>
 {% endblock %}
