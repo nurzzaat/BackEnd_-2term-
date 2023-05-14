@@ -17,7 +17,8 @@ urlpatterns = [
     path('songedit/<int:song_pk>/', views.song_edit, name='song_edit'),
     path('my_library/', views.my_library, name='my_library'),
     path('add_song_to_playlist/<int:pk>', views.add_song_to_playlist, name='add_song_to_playlist'),
-    path('playlist/<int:pk>', views.playlist_detail, name='playlist_detail')
+    path('playlist/<int:pk>', views.playlist_detail, name='playlist_detail'),
+    path('create_playlist/', views.create_playlist, name='create_playlist'),
 ]
 
 if settings.DEBUG:

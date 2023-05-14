@@ -4,7 +4,7 @@ from .forms import *
 from .models import (Artist, Album, Song, Playlist, PlaylistSong)
 from django.contrib import messages
 from django.contrib.auth.models import auth
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 
 
 def album_list(request):
@@ -167,3 +167,14 @@ def profile(request):
     user = request.user
     permissions = user.get_all_permissions()
     return render(request, 'profile.html', {'user': user, 'permissions': permissions})
+
+def create_playlist(request):
+    if request.method == 'POST':
+        form = PlayListForm(request.POST)
+        form.user = request.POST.get('user')
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/my_library')
+    else:
+        form = PlayListForm()
+    return render(request, 'create_playlist.html', {'form': form})
