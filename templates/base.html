@@ -22,18 +22,19 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline">
                         <a href="/albums/"
-                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/albums/' %}active" style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"><img
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/albums/' or request.path == '/' %}active"
+                           style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"><img
                                 style="float:left;margin-right:7px" width="19px" height="19px"
                                 src="https://icons.veryicon.com/png/128/miscellaneous/fs-icon/home-227.png"> Home</a>
 
                         <a href="{% url 'song_search' %}"
-                           id="2"
-                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/search/' %}active" style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"><img
+                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/search/' %}active"
+                           style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"><img
                                 style="float:left;margin-right:7px " width="18px" height="18px"
                                 src="https://icons.veryicon.com/png/o/business/official-icon-of-the-insurer/search-225.png">Search</a>
 
-                        <a id="3"
-                           class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/my_library/' %}active" style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"
+                        <a class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/my_library/' %}active"
+                           style="color: white; background-color: gray;text-decoration: none{% else %}" style="color: white; text-decoration: none{% endif %}"
                                 {% if user.is_authenticated %} href="{% url 'my_library' %}"
                                 {% else %} onclick="authenticate()" href="#"{% endif %}><img
                                 style="float:left;margin-right:7px " width="20px" height="20px"
@@ -43,13 +44,17 @@
             </div>
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
-
                     <div class="ml-3 relative">
                         <div>
-                            <button style="float: left;margin-right: 30px" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
+                            <button style="float: left;margin-right: 30px"
+                                    class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-white transition duration-150 ease-in-out"
                                     id="user-menu" aria-label="User menu" aria-haspopup="true">
                                 {% if user.is_authenticated %}
-                                    <span><a style="color: white;text-decoration:none;font-size: 18px" href="#">{{ request.user }}</a></span>
+                                    <span>
+                                    <a href="{% url 'profile' %}"
+                                       class="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 {% if request.path == '/accounts/profile/' %}active"
+                                       style="color: white; background-color: gray;font-size: 18px;text-decoration: none{% else %}" style="color: white;text-decoration:none;font-size: 18px{% endif %}">{{ request.user }}</a>
+                                    </span>
                                 {% endif %}
                             </button>
 
