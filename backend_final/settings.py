@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'review.apps.ReviewConfig',
     'crispy_forms',
-    'crispy_bootstrap4',
+    # 'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [

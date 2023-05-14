@@ -26,6 +26,12 @@ def album_detail(request, pk):
     return render(request, "album_songs.html", {'songs': songs, 'album': album})
 
 
+def playlist_detail(request, pk):
+    playlist = Playlist.objects.get(pk=pk)
+    songs = PlaylistSong.objects.filter(playlist=playlist)
+    return render(request, "playlist_songs.html", {'playlist': playlist, 'songs': songs})
+
+
 def genre_list(request):
     search_text = request.GET.get("search", "")
     form = SearchForm(request.GET)
@@ -69,7 +75,9 @@ def albums_in_genre(request, genre_name):
 
 def songs_detail(request, pk):
     song = Song.objects.get(pk=pk)
+
     return render(request, "song_detail.html", {'song': song})
+
 
 def search_song(request, name):
     name = request.GET.get('search')
@@ -99,10 +107,25 @@ def song_edit(request, song_pk):
 
     return render(request, 'song_edit.html', {'form': form})
 
+
 @login_required
 def my_library(request):
     user_playlists = Playlist.objects.filter(user=request.user)
     return render(request, 'my_library.html', {'playlists': user_playlists})
+
+
+def add_song_to_playlist(request, pk):
+    song = Song.objects.get(pk=pk)
+    playlists = Playlist.objects.filter(user=request.user)
+
+    if request.method == 'POST':
+        playlist_id = request.POST.get('playlist')
+        playlist = Playlist.objects.get(pk=playlist_id)
+        if not PlaylistSong.objects.filter(playlist=playlist, song=song).exists():
+            PlaylistSong.objects.create(playlist=playlist, song=song)
+        return redirect('playlist_detail', pk=playlist_id)
+
+    return render(request, 'add_song_to_playlist.html', {'playlists': playlists, 'song': song})
 
 
 def register(request):
