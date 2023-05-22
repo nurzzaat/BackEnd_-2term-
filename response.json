@@ -1,0 +1,56 @@
+[
+    {
+        "customer_id": "1",
+        "customer_name": "Dias",
+        "address": "Sain-Abai",
+        "phone_number": "87473868903",
+        "delivery_day": "1",
+        "delivery_period": "3",
+        "subscription_duration": "7",
+        "basket": [
+            {
+                "product_id": "1",
+                "name": "airan",
+                "category": "Milkmade",
+                "weight": "100",
+                "availibility": "1",
+                "Customer_id": "1"
+            },
+            {
+                "product_id": "2",
+                "name": "Milk",
+                "category": "Milkmade",
+                "weight": "50",
+                "availibility": "1",
+                "Customer_id": "1"
+            }
+        ]
+    },
+    {
+        "customer_id": "2",
+        "customer_name": "Nurzat",
+        "address": "Sain-Abai",
+        "phone_number": "87786068853",
+        "delivery_day": "2",
+        "delivery_period": "2",
+        "subscription_duration": "20",
+        "basket": [
+            {
+                "product_id": "3",
+                "name": "apple",
+                "category": "Fruits",
+                "weight": "50",
+                "availibility": "1",
+                "Customer_id": "2"
+            },
+            {
+                "product_id": "4",
+                "name": "Banan",
+                "category": "Fruits",
+                "weight": "30",
+                "availibility": "1",
+                "Customer_id": "2"
+            }
+        ]
+    }
+]
